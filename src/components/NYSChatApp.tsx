@@ -3,7 +3,7 @@
 // with links that open the native phone and messaging applications.
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Video, BookOpen, Star, MapPin, Send, DollarSign, ShieldCheck, FileText, Phone, MessageSquare } from 'lucide-react';
+import { Video, BookOpen, Star, MapPin, Send, DollarSign, ShieldCheck, FileText, Phone, MessageSquare, ShoppingCart } from 'lucide-react';
 
 // --- Helper Components (Icons) ---
 const NysLogo = ({ className }: { className?: string }) => (
@@ -156,22 +156,69 @@ const Sidebar = ({ content }: { content: any }) => {
         <aside className="hidden md:block w-full md:w-1/3 lg:w-1/4 bg-white p-6 border-l border-gray-200 overflow-y-auto">
             <h2 className="text-xl font-bold text-gray-800 mb-6">{content.title}</h2>
             <div className="space-y-6">
-                <div className="group">
-                    <div className="flex items-center gap-3 mb-2"><Video className="w-5 h-5 text-blue-500" /><h3 className="font-semibold text-gray-700">Featured Video</h3></div>
-                    <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden border border-gray-200"><img src={content.video.thumbnail} alt={content.video.title} className="w-full h-full object-cover" /></div>
-                    <p className="text-sm text-gray-600 mt-2">{content.video.title}</p>
-                </div>
-                <div className="group">
-                     <div className="flex items-center gap-3 mb-2"><BookOpen className="w-5 h-5 text-blue-500" /><h3 className="font-semibold text-gray-700">From Our Blog</h3></div>
-                    <a href="#" className="text-sm text-blue-600 hover:underline">{content.blog.title}</a>
-                </div>
-                <div className="group">
-                     <div className="flex items-center gap-3 mb-2"><Star className="w-5 h-5 text-blue-500" /><h3 className="font-semibold text-gray-700">Customer Review</h3></div>
-                    <div className="bg-gray-50 p-3 rounded-lg border border-gray-200">
-                        <p className="text-sm italic text-gray-700">"{content.review.quote}"</p>
-                        <p className="text-sm font-semibold text-right mt-2">- {content.review.author}</p>
+                {/* Product Section - replaces video when available */}
+                {content.product ? (
+                    <div className="group">
+                        <div className="flex items-center gap-3 mb-2">
+                            <ShoppingCart className="w-5 h-5 text-blue-500" />
+                            <h3 className="font-semibold text-gray-700">Featured Product</h3>
+                        </div>
+                        <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden border border-gray-200">
+                            <img 
+                                src={content.product.image} 
+                                alt={content.product.name} 
+                                className="w-full h-full object-cover"
+                            />
+                        </div>
+                        <h4 className="font-semibold text-gray-800 mt-2">{content.product.name}</h4>
+                        <p className="text-sm text-gray-600 mt-1">{content.product.description}</p>
+                        <div className="mt-2 flex justify-between items-center">
+                            <span className="font-bold text-blue-600">${content.product.price}</span>
+                            <button className="text-xs bg-blue-600 text-white px-2 py-1 rounded hover:bg-blue-700">
+                                View Details
+                            </button>
+                        </div>
                     </div>
-                </div>
+                ) : content.video ? (
+                    <div className="group">
+                        <div className="flex items-center gap-3 mb-2">
+                            <Video className="w-5 h-5 text-blue-500" />
+                            <h3 className="font-semibold text-gray-700">Featured Video</h3>
+                        </div>
+                        <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden border border-gray-200">
+                            <img 
+                                src={content.video.thumbnail} 
+                                alt={content.video.title} 
+                                className="w-full h-full object-cover"
+                            />
+                        </div>
+                        <p className="text-sm text-gray-600 mt-2">{content.video.title}</p>
+                    </div>
+                ) : null}
+
+                {content.blog && (
+                    <div className="group">
+                        <div className="flex items-center gap-3 mb-2">
+                            <BookOpen className="w-5 h-5 text-blue-500" />
+                            <h3 className="font-semibold text-gray-700">From Our Blog</h3>
+                        </div>
+                        <a href="#" className="text-sm text-blue-600 hover:underline">{content.blog.title}</a>
+                    </div>
+                )}
+
+                {content.review && (
+                    <div className="group">
+                        <div className="flex items-center gap-3 mb-2">
+                            <Star className="w-5 h-5 text-blue-500" />
+                            <h3 className="font-semibold text-gray-700">Customer Review</h3>
+                        </div>
+                        <div className="bg-gray-50 p-3 rounded-lg border border-gray-200">
+                            <p className="text-sm italic text-gray-700">"{content.review.quote}"</p>
+                            <p className="text-sm font-semibold text-right mt-2">- {content.review.author}</p>
+                        </div>
+                    </div>
+                )}
+
                 {/* Quick Actions Section */}
                 <div>
                     <div className="grid grid-cols-2 gap-3 mt-8">
@@ -224,16 +271,204 @@ export default function NYSChatApp() {
     const [productContext, setProductContext] = useState('');
     const chatEndRef = useRef<HTMLDivElement>(null);
 
-    // Mock content database
+    // Mock content database with Utica-specific content and product integration
     const sidebarContentDB = {
         bathrooms: {
-            generic: { title: "Bathroom Remodeling", video: { title: "One-Day Bathroom Transformations", thumbnail: "https://placehold.co/400x225/a0c4ff/ffffff?text=Bathroom+Video" }, blog: { title: "Top 5 Bathroom Trends in Central NY" }, review: { quote: "They remodeled our bathroom in a single day, just as promised. Incredible!", author: "Sarah K., Syracuse" } },
-            utica: { title: "Bathroom Remodeling in Utica", video: { title: "See a Recent Utica Bathroom Project", thumbnail: "https://placehold.co/400x225/90e0ef/ffffff?text=Utica+Bathroom" }, blog: { title: "Maximizing Small Bathroom Space in Utica Homes" }, review: { quote: "New York Sash made our old bathroom feel brand new. The team was fantastic.", author: "John D., Utica" } }
+            generic: { 
+                title: "Bathroom Remodeling", 
+                video: { title: "One-Day Bathroom Transformations", thumbnail: "https://placehold.co/400x225/a0c4ff/ffffff?text=Bathroom+Video" }, 
+                blog: { title: "Top 5 Bathroom Trends in Central NY" }, 
+                review: { quote: "They remodeled our bathroom in a single day, just as promised. Incredible!", author: "Sarah K., Syracuse" } 
+            },
+            utica: { 
+                title: "Bathroom Remodeling in Utica", 
+                video: { title: "See a Recent Utica Bathroom Project", thumbnail: "https://placehold.co/400x225/90e0ef/ffffff?text=Utica+Bathroom" }, 
+                blog: { title: "Maximizing Small Bathroom Space in Utica Homes" }, 
+                review: { quote: "New York Sash made our old bathroom feel brand new. The team was fantastic.", author: "John D., Utica" } 
+            }
         },
         windows: {
-            generic: { title: "Replacement Windows", video: { title: "Energy-Efficient Windows in Action", thumbnail: "https://placehold.co/400x225/a0c4ff/ffffff?text=Window+Video" }, blog: { title: "Are Triple-Pane Windows Worth It in NY?" }, review: { quote: "Our heating bills dropped immediately after New York Sash installed our new windows.", author: "Mike T., Rome" } },
-            utica: { title: "Windows for Utica Homes", video: { title: "A Recent Window Installation in Utica", thumbnail: "https://placehold.co/400x225/90e0ef/ffffff?text=Utica+Windows" }, blog: { title: "Choosing the Right Window Style for Historic Utica Homes" }, review: { quote: "The new windows look perfect on our older home. Great craftsmanship.", author: "Emily R., Utica" } }
+            generic: { 
+                title: "Replacement Windows", 
+                video: { title: "Energy-Efficient Windows in Action", thumbnail: "https://placehold.co/400x225/a0c4ff/ffffff?text=Window+Video" }, 
+                blog: { title: "Are Triple-Pane Windows Worth It in NY?" }, 
+                review: { quote: "Our heating bills dropped immediately after New York Sash installed our new windows.", author: "Mike T., Rome" } 
+            },
+            utica: { 
+                title: "Windows for Utica Homes", 
+                video: { title: "A Recent Window Installation in Utica", thumbnail: "https://placehold.co/400x225/90e0ef/ffffff?text=Utica+Windows" }, 
+                blog: { title: "Choosing the Right Window Style for Historic Utica Homes" }, 
+                review: { quote: "The new windows look perfect on our older home. Great craftsmanship.", author: "Emily R., Utica" } 
+            }
         },
+        double_hung: {
+            generic: {
+                title: "Double Hung Windows",
+                product: {
+                    name: "Premium Double Hung Vinyl Window",
+                    description: "Energy-efficient double hung window with tilt-in sashes for easy cleaning",
+                    price: "299.99",
+                    image: "https://placehold.co/400x225/4a90e2/ffffff?text=Double+Hung+Window"
+                },
+                blog: { title: "Benefits of Double Hung Windows" },
+                review: { quote: "These windows are perfect for our family. Easy to clean and very energy efficient.", author: "Robert L., Syracuse" }
+            },
+            utica: {
+                title: "Double Hung Windows for Utica",
+                product: {
+                    name: "Utica Double Hung Vinyl Window",
+                    description: "Custom-designed for Utica homes with enhanced weather resistance",
+                    price: "329.99",
+                    image: "https://placehold.co/400x225/50c878/ffffff?text=Utica+Double+Hung"
+                },
+                blog: { title: "Double Hung Windows in Historic Utica Homes" },
+                review: { quote: "Perfect fit for our 1920s home. The energy savings are impressive!", author: "Justin M., Utica" }
+            }
+        },
+        bay_bow: {
+            generic: {
+                title: "Bay & Bow Windows",
+                product: {
+                    name: "Custom Bay Window System",
+                    description: "Beautiful projecting windows that add space and light to any room",
+                    price: "899.99",
+                    image: "https://placehold.co/400x225/ffa500/ffffff?text=Bay+Window"
+                },
+                blog: { title: "Maximizing Natural Light with Bay Windows" },
+                review: { quote: "Our bay window transformed our living room. So much more spacious now!", author: "Lisa K., Clinton" }
+            },
+            utica: {
+                title: "Bay & Bow Windows for Utica",
+                product: {
+                    name: "Utica Bay Window Collection",
+                    description: "Designed for Utica's architectural styles with enhanced insulation",
+                    price: "949.99",
+                    image: "https://placehold.co/400x225/ff6347/ffffff?text=Utica+Bay+Window"
+                },
+                blog: { title: "Bay Windows for Utica's Historic Districts" },
+                review: { quote: "Absolutely love our new bay window. It's the focal point of our dining room.", author: "Mark T., Utica" }
+            }
+        },
+        picture: {
+            generic: {
+                title: "Picture Windows",
+                product: {
+                    name: "Large Picture Window",
+                    description: "Maximize your view with our energy-efficient fixed windows",
+                    price: "449.99",
+                    image: "https://placehold.co/400x225/9370db/ffffff?text=Picture+Window"
+                },
+                blog: { title: "Picture Windows for Stunning Views" },
+                review: { quote: "The view from our picture window is breathtaking. Worth every penny.", author: "Jennifer S., Rome" }
+            },
+            utica: {
+                title: "Picture Windows for Utica",
+                product: {
+                    name: "Utica Picture Window",
+                    description: "Custom-sized for Utica homes with superior clarity and insulation",
+                    price: "479.99",
+                    image: "https://placehold.co/400x225/20b2aa/ffffff?text=Utica+Picture+Window"
+                },
+                blog: { title: "Picture Windows for Utica's Scenic Areas" },
+                review: { quote: "Our picture window frames the garden perfectly. Beautiful craftsmanship.", author: "Justin M., Utica" }
+            }
+        },
+        awning: {
+            generic: {
+                title: "Awning Windows",
+                product: {
+                    name: "Vinyl Awning Window",
+                    description: "Top-hinged windows perfect for ventilation during light rain",
+                    price: "199.99",
+                    image: "https://placehold.co/400x225/ff69b4/ffffff?text=Awning+Window"
+                },
+                blog: { title: "Awning Windows for Optimal Ventilation" },
+                review: { quote: "These windows are perfect for our kitchen. Great airflow even in the rain.", author: "David P., Whitesboro" }
+            },
+            utica: {
+                title: "Awning Windows for Utica",
+                product: {
+                    name: "Utica Awning Window",
+                    description: "Weather-resistant awning windows designed for Utica's climate",
+                    price: "219.99",
+                    image: "https://placehold.co/400x225/32cd32/ffffff?text=Utica+Awning+Window"
+                },
+                blog: { title: "Awning Windows for Utica's Variable Weather" },
+                review: { quote: "Perfect for our basement. Great ventilation without compromising security.", author: "Justin M., Utica" }
+            }
+        },
+        slider: {
+            generic: {
+                title: "Slider Windows",
+                product: {
+                    name: "Smooth Glide Slider Window",
+                    description: "Easy-to-operate horizontal sliding windows with superior insulation",
+                    price: "279.99",
+                    image: "https://placehold.co/400x225/ff4500/ffffff?text=Slider+Window"
+                },
+                blog: { title: "Slider Windows: Easy Operation, Great Views" },
+                review: { quote: "These slider windows are so smooth. Much easier than our old crank windows.", author: "Nancy W., New Hartford" }
+            },
+            utica: {
+                title: "Slider Windows for Utica",
+                product: {
+                    name: "Utica Slider Window",
+                    description: "Durable slider windows built for Utica's weather conditions",
+                    price: "299.99",
+                    image: "https://placehold.co/400x225/8a2be2/ffffff?text=Utica+Slider+Window"
+                },
+                blog: { title: "Slider Windows for Utica's Modern Homes" },
+                review: { quote: "The slider windows in our family room are perfect. Easy to use and energy efficient.", author: "Justin M., Utica" }
+            }
+        },
+        hopper: {
+            generic: {
+                title: "Hopper Windows",
+                product: {
+                    name: "Basement Hopper Window",
+                    description: "Bottom-hinged windows ideal for basements and small spaces",
+                    price: "179.99",
+                    image: "https://placehold.co/400x225/ff8c00/ffffff?text=Hopper+Window"
+                },
+                blog: { title: "Hopper Windows for Basement Ventilation" },
+                review: { quote: "These hopper windows are perfect for our basement. Great airflow and security.", author: "Tom R., Clinton" }
+            },
+            utica: {
+                title: "Hopper Windows for Utica",
+                product: {
+                    name: "Utica Hopper Window",
+                    description: "Secure hopper windows designed for Utica's basement conditions",
+                    price: "199.99",
+                    image: "https://placehold.co/400x225/008080/ffffff?text=Utica+Hopper+Window"
+                },
+                blog: { title: "Hopper Windows for Utica's Historic Basements" },
+                review: { quote: "Exactly what we needed for our finished basement. Works perfectly.", author: "Justin M., Utica" }
+            }
+        },
+        casement: {
+            generic: {
+                title: "Casement Windows",
+                product: {
+                    name: "Crank-Operated Casement Window",
+                    description: "Outward-opening windows with superior ventilation and security",
+                    price: "349.99",
+                    image: "https://placehold.co/400x225/4169e1/ffffff?text=Casement+Window"
+                },
+                blog: { title: "Casement Windows for Maximum Ventilation" },
+                review: { quote: "These casement windows provide excellent airflow. The crank mechanism is smooth.", author: "Susan L., Rome" }
+            },
+            utica: {
+                title: "Casement Windows for Utica",
+                product: {
+                    name: "Utica Casement Window",
+                    description: "Secure casement windows with enhanced weather resistance for Utica",
+                    price: "379.99",
+                    image: "https://placehold.co/400x225/dc143c/ffffff?text=Utica+Casement+Window"
+                },
+                blog: { title: "Casement Windows for Utica's Drafty Winters" },
+                review: { quote: "Our new casement windows keep out the cold Utica winters perfectly. Great quality.", author: "Justin M., Utica" }
+            }
+        }
     };
 
     const conversationFlow: any = {
@@ -377,7 +612,17 @@ export default function NYSChatApp() {
         const productCategories = ['windows', 'siding', 'bathrooms', 'doors'];
         if (productCategories.includes(stepKey)) {
             setProductContext(stepKey);
-             if (sidebarContentDB[stepKey as keyof typeof sidebarContentDB]) {
+            if (sidebarContentDB[stepKey as keyof typeof sidebarContentDB]) {
+                const content = sidebarContentDB[stepKey as keyof typeof sidebarContentDB][userInfo?.location] || sidebarContentDB[stepKey as keyof typeof sidebarContentDB].generic;
+                setSidebarContent(content);
+            }
+        }
+        
+        // Update sidebar content for specific window styles
+        const windowStyles = ['double_hung', 'bay_bow', 'picture', 'awning', 'slider', 'hopper', 'casement'];
+        if (windowStyles.includes(stepKey)) {
+            setProductContext(stepKey);
+            if (sidebarContentDB[stepKey as keyof typeof sidebarContentDB]) {
                 const content = sidebarContentDB[stepKey as keyof typeof sidebarContentDB][userInfo?.location] || sidebarContentDB[stepKey as keyof typeof sidebarContentDB].generic;
                 setSidebarContent(content);
             }
