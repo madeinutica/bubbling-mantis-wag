@@ -242,8 +242,108 @@ export default function NYSChatApp() {
             options: [ { text: 'Windows', value: 'windows' }, { text: 'Siding', value: 'siding' }, { text: 'Bathrooms', value: 'bathrooms' }, { text: 'Doors', value: 'doors' } ],
             next: (choice: string) => choice,
         },
-        windows: { agent: "Great! We offer a wide variety of beautiful, energy-efficient replacement windows. What are you most interested in?", options: [ { text: 'Energy Efficiency', value: 'windows_efficiency' }, { text: 'Curb Appeal', value: 'windows_style' } ], next: (choice: string) => choice, },
-        bathrooms: { agent: "Great choice! We specialize in stunning one-day bath and shower remodels. What would you like to know more about?", options: [ { text: 'The One-Day Process', value: 'bath_process' }, { text: 'Safety & Accessibility', value: 'bath_safety' } ], next: (choice: string) => choice, },
+        windows: { 
+            agent: "Great! We offer a wide variety of beautiful, energy-efficient replacement windows. What are you most interested in?", 
+            options: [ 
+                { text: 'Window Styles', value: 'windows_styles' }, 
+                { text: 'Energy Efficiency', value: 'windows_efficiency' },
+                { text: 'Customization Options', value: 'windows_customization' }
+            ], 
+            next: (choice: string) => choice, 
+        },
+        windows_styles: { 
+            agent: "When you choose New York Sash, you're investing in premium, custom-crafted vinyl windows designed specifically for your Central New York home. Let me tell you about our window styles:\n\n1. Double Hung Windows - Classic and versatile with two operable sashes that tilt inward for easy cleaning.\n2. Bay Windows - Project outward to create spaciousness and increase natural light.\n3. Bow Windows - Gentle curved design for panoramic views.\n4. Picture Windows - Large fixed windows for unobstructed views.\n5. Awning Windows - Hinged at the top, perfect for ventilation during light rain.\n6. Slider Windows - Glide effortlessly with a simple push or pull.\n7. Hopper Windows - Hinged at the bottom, ideal for basements.\n8. Casement Windows - Outward opening with a crank mechanism for security and views.\n\nWhich style interests you most?", 
+            options: [ 
+                { text: 'Double Hung', value: 'double_hung' }, 
+                { text: 'Bay/Bow', value: 'bay_bow' },
+                { text: 'Picture', value: 'picture' },
+                { text: 'Awning', value: 'awning' },
+                { text: 'Slider', value: 'slider' },
+                { text: 'Hopper', value: 'hopper' },
+                { text: 'Casement', value: 'casement' }
+            ], 
+            next: (choice: string) => choice, 
+        },
+        double_hung: { 
+            agent: "Double Hung Windows are a classic and versatile choice, featuring two operable sashes (upper and lower) that glide smoothly within the frame. This allows for flexible ventilation – open the top sash, the bottom sash, or both. For easy cleaning, both sashes conveniently tilt inward. Double hung windows are a timeless and practical option for virtually any room in your home.\n\nWould you like to know about customization options for your windows?", 
+            options: [ 
+                { text: 'Yes, tell me about customization', value: 'windows_customization' }, 
+                { text: 'Get a Free Quote', value: 'contact' }
+            ], 
+            next: (choice: string) => choice, 
+        },
+        bay_bow: { 
+            agent: "Bay and Bow Windows project outward from your wall, creating a sense of spaciousness and dramatically increasing natural light. Bay windows feature a distinct angular design, while bow windows have a gentle curved shape for panoramic views. Both add architectural elegance and dimension to your home.\n\nWould you like to know about customization options for your windows?", 
+            options: [ 
+                { text: 'Yes, tell me about customization', value: 'windows_customization' }, 
+                { text: 'Get a Free Quote', value: 'contact' }
+            ], 
+            next: (choice: string) => choice, 
+        },
+        picture: { 
+            agent: "Picture Windows are perfect for showcasing beautiful views. These large, fixed windows offer expansive, unobstructed views of the outside world and maximize natural light penetration to create a strong visual connection to your outdoor surroundings.\n\nWould you like to know about customization options for your windows?", 
+            options: [ 
+                { text: 'Yes, tell me about customization', value: 'windows_customization' }, 
+                { text: 'Get a Free Quote', value: 'contact' }
+            ], 
+            next: (choice: string) => choice, 
+        },
+        awning: { 
+            agent: "Awning Windows are hinged at the top and open outward, making them ideal for ventilation even during light rain. They're perfect for adding privacy and security while still allowing ample sunlight to brighten your home.\n\nWould you like to know about customization options for your windows?", 
+            options: [ 
+                { text: 'Yes, tell me about customization', value: 'windows_customization' }, 
+                { text: 'Get a Free Quote', value: 'contact' }
+            ], 
+            next: (choice: string) => choice, 
+        },
+        slider: { 
+            agent: "Slider Windows offer unobstructed views and effortless operation. Say goodbye to cumbersome lifting and cranking—our slider windows glide smoothly with a simple push or pull. With fewer moving parts, they're easier to use and require less maintenance over time.\n\nWould you like to know about customization options for your windows?", 
+            options: [ 
+                { text: 'Yes, tell me about customization', value: 'windows_customization' }, 
+                { text: 'Get a Free Quote', value: 'contact' }
+            ], 
+            next: (choice: string) => choice, 
+        },
+        hopper: { 
+            agent: "Hopper Windows are hinged at the bottom and open inward, making them excellent for maximizing airflow in smaller spaces. Often used in basements and bathrooms, they offer ventilation while maintaining security and are easy to operate in confined areas.\n\nWould you like to know about customization options for your windows?", 
+            options: [ 
+                { text: 'Yes, tell me about customization', value: 'windows_customization' }, 
+                { text: 'Get a Free Quote', value: 'contact' }
+            ], 
+            next: (choice: string) => choice, 
+        },
+        casement: { 
+            agent: "Casement Windows feature a multi-point locking system for enhanced security and offer panoramic views when opened outward with their easy-to-use crank mechanism. The hinges are designed for easy cleaning from inside your home, and triple weather-stripping ensures a tight seal against drafts.\n\nWould you like to know about customization options for your windows?", 
+            options: [ 
+                { text: 'Yes, tell me about customization', value: 'windows_customization' }, 
+                { text: 'Get a Free Quote', value: 'contact' }
+            ], 
+            next: (choice: string) => choice, 
+        },
+        windows_customization: { 
+            agent: "At New York Sash, every window is custom-made for your home. We offer:\n\n1. Colors - A wide range of colors to match your home's exterior and interior.\n2. Grids - Contoured, flat, or simulated divided lite grids for various architectural styles.\n3. Casing - Finishing touches that add architectural detail and refinement.\n\nOur windows exceed ENERGY STAR standards, are built to handle upstate New York weather, and come with our unbeatable warranty.\n\nWould you like to visit our Idea & Design Center to see exactly what your windows will look like?", 
+            options: [ 
+                { text: 'Tell me about the Design Center', value: 'design_center' }, 
+                { text: 'Get a Free Quote', value: 'contact' }
+            ], 
+            next: (choice: string) => choice, 
+        },
+        design_center: { 
+            agent: "At the New York Sash Idea & Design Center located at 349 Oriskany Boulevard in Whitesboro, you can see exactly what the windows will look like once installed in your home. Consult with our knowledgeable team, explore design options, and gather inspiration to create the stunning home exterior you've always dreamed of.\n\nWould you like to schedule a visit or get a free quote?", 
+            options: [ 
+                { text: 'Get a Free Quote', value: 'contact' }, 
+                { text: 'Financing Options', value: 'financing' }
+            ], 
+            next: (choice: string) => choice, 
+        },
+        windows_efficiency: { 
+            agent: "New York Sash windows go beyond ENERGY STAR standards, helping you save on energy costs while maintaining a cozy living environment throughout the year. Our custom-made windows are built to handle upstate New York weather with fusion-welded sashes and frames for incredible strength and durability.\n\nWould you like to know about our customization options?", 
+            options: [ 
+                { text: 'Yes, tell me about customization', value: 'windows_customization' }, 
+                { text: 'Get a Free Quote', value: 'contact' }
+            ], 
+            next: (choice: string) => choice, 
+        },
         financing: { agent: (context: string) => `Of course. We offer flexible financing to make your dream ${context || 'project'} a reality. A specialist can walk you through the options. To get started, what is the best phone number and email to reach you?`, next: () => 'end_contact' },
         warranty: { agent: (context: string) => `Absolutely. We stand behind our work. All our ${context || 'products'} come with a comprehensive warranty for your peace of mind. A specialist can provide all the details for you. Can I get your phone and email?`, next: () => 'end_contact' },
         contact: { agent: (context: string, name: string) => `Perfect, ${name}. A specialist can provide a detailed, free quote for your ${context || 'project'}. I'll have someone reach out to the contact info you provide. What is the best phone number and email?`, next: () => 'end_contact' },
