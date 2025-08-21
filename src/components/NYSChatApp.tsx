@@ -468,6 +468,164 @@ export default function NYSChatApp() {
                 blog: { title: "Casement Windows for Utica's Drafty Winters" },
                 review: { quote: "Our new casement windows keep out the cold Utica winters perfectly. Great quality.", author: "Justin M., Utica" }
             }
+        },
+        siding: {
+            generic: {
+                title: "Siding Options",
+                video: { title: "Transform Your Home with New Siding", thumbnail: "https://placehold.co/400x225/90e0ef/ffffff?text=Siding+Video" },
+                blog: { title: "Choosing the Right Siding for Your Home" },
+                review: { quote: "The new siding completely transformed our home's curb appeal. Worth every penny!", author: "Robert L., Syracuse" }
+            },
+            utica: {
+                title: "Siding for Utica Homes",
+                video: { title: "Recent Siding Project in Utica", thumbnail: "https://placehold.co/400x225/50c878/ffffff?text=Utica+Siding" },
+                blog: { title: "Siding Options for Historic Utica Homes" },
+                review: { quote: "New York Sash helped us choose the perfect siding for our 1920s home. The team was fantastic!", author: "Justin M., Utica" }
+            }
+        },
+        engineered_wood: {
+            generic: {
+                title: "Engineered Wood Siding",
+                product: {
+                    name: "Diamond Kote Engineered Wood Siding",
+                    description: "Rich texture and natural appeal of wood with enhanced durability and 30-year warranty",
+                    price: "5.99/sq ft",
+                    image: "https://placehold.co/400x225/8B4513/ffffff?text=Engineered+Wood+Siding"
+                },
+                blog: { title: "Benefits of Engineered Wood Siding" },
+                review: { quote: "Love the look of real wood without the maintenance. The warranty gives us peace of mind.", author: "Sarah K., Rome" }
+            },
+            utica: {
+                title: "Engineered Wood Siding for Utica",
+                product: {
+                    name: "Utica Diamond Kote Siding",
+                    description: "Custom-engineered for Utica's weather conditions with enhanced moisture resistance",
+                    price: "6.49/sq ft",
+                    image: "https://placehold.co/400x225/A0522D/ffffff?text=Utica+Engineered+Wood"
+                },
+                blog: { title: "Engineered Wood Siding for Historic Utica Homes" },
+                review: { quote: "Perfect for our older home. Looks authentic and has held up great through Utica winters.", author: "Justin M., Utica" }
+            }
+        },
+        cedar_shake: {
+            generic: {
+                title: "Cedar Shake & Shingle Siding",
+                product: {
+                    name: "Cedar Shake & Shingle Vinyl Siding",
+                    description: "Authentic look of real cedar with low-maintenance convenience of vinyl",
+                    price: "4.99/sq ft",
+                    image: "https://placehold.co/400x225/8B4513/ffffff?text=Cedar+Shake+Siding"
+                },
+                blog: { title: "Cedar Shake Siding: Classic Beauty with Modern Benefits" },
+                review: { quote: "Gets the authentic cedar look without the upkeep. Neighbors can't tell the difference!", author: "Mike T., Whitesboro" }
+            },
+            utica: {
+                title: "Cedar Shake Siding for Utica",
+                product: {
+                    name: "Utica Cedar Shake Vinyl Siding",
+                    description: "Molded from genuine wood shingles with enhanced durability for Utica's climate",
+                    price: "5.49/sq ft",
+                    image: "https://placehold.co/400x225/8B5A2B/ffffff?text=Utica+Cedar+Shake"
+                },
+                blog: { title: "Cedar Shake Siding for Utica's Architectural Styles" },
+                review: { quote: "Gives our home that classic cottage look we wanted. Perfect for our Utica neighborhood.", author: "Justin M., Utica" }
+            }
+        },
+        reinforced_vinyl: {
+            generic: {
+                title: "Reinforced Vinyl Siding",
+                product: {
+                    name: "Reinforced Vinyl Siding",
+                    description: "Authentic wood appearance with unmatched durability and low maintenance",
+                    price: "3.99/sq ft",
+                    image: "https://placehold.co/400x225/4682B4/ffffff?text=Reinforced+Vinyl+Siding"
+                },
+                blog: { title: "Benefits of Reinforced Vinyl Siding" },
+                review: { quote: "Best investment we made for our home. Looks great and zero maintenance!", author: "Lisa K., Clinton" }
+            },
+            utica: {
+                title: "Reinforced Vinyl Siding for Utica",
+                product: {
+                    name: "Utica Reinforced Vinyl Siding",
+                    description: "Enhanced rigidity and impact resistance for Utica's weather conditions",
+                    price: "4.49/sq ft",
+                    image: "https://placehold.co/400x225/5D8AA8/ffffff?text=Utica+Reinforced+Vinyl"
+                },
+                blog: { title: "Reinforced Vinyl Siding for Utica's Harsh Winters" },
+                review: { quote: "Held up perfectly through last winter's ice storms. No damage whatsoever.", author: "Justin M., Utica" }
+            }
+        },
+        monogram: {
+            generic: {
+                title: "Monogram Traditional Vinyl Siding",
+                product: {
+                    name: "Monogram Traditional Vinyl Siding",
+                    description: "Classic look of painted or stained cedar with refined aesthetic",
+                    price: "3.49/sq ft",
+                    image: "https://placehold.co/400x225/708090/ffffff?text=Monogram+Vinyl+Siding"
+                },
+                blog: { title: "Traditional Vinyl Siding Styles" },
+                review: { quote: "Exactly the classic look we wanted. Color has stayed vibrant for years.", author: "Emily R., Utica" }
+            },
+            utica: {
+                title: "Monogram Vinyl Siding for Utica",
+                product: {
+                    name: "Utica Monogram Traditional Siding",
+                    description: "Custom color options designed for Utica's architectural styles",
+                    price: "3.99/sq ft",
+                    image: "https://placehold.co/400x225/778899/ffffff?text=Utica+Monogram+Siding"
+                },
+                blog: { title: "Traditional Siding for Historic Utica Homes" },
+                review: { quote: "Perfect match for our neighborhood. Neighbors keep asking where we got it!", author: "Justin M., Utica" }
+            }
+        },
+        stacked_stone: {
+            generic: {
+                title: "Stacked Stone Vinyl Siding",
+                product: {
+                    name: "Stacked Stone Vinyl Siding",
+                    description: "Sophisticated texture and timeless appeal of natural stone",
+                    price: "7.99/sq ft",
+                    image: "https://placehold.co/400x225/696969/ffffff?text=Stacked+Stone+Siding"
+                },
+                blog: { title: "Stacked Stone Siding: Elegance Meets Durability" },
+                review: { quote: "Transformed our entire home's exterior. Adds so much character and value.", author: "Mark T., Utica" }
+            },
+            utica: {
+                title: "Stacked Stone Siding for Utica",
+                product: {
+                    name: "Utica Stacked Stone Vinyl Siding",
+                    description: "Designed to complement Utica's historic stone architecture",
+                    price: "8.49/sq ft",
+                    image: "https://placehold.co/400x225/808080/ffffff?text=Utica+Stacked+Stone"
+                },
+                blog: { title: "Stacked Stone Siding for Utica's Historic Districts" },
+                review: { quote: "Perfect for creating accent walls. Blends beautifully with our neighborhood's character.", author: "Justin M., Utica" }
+            }
+        },
+        board_batten: {
+            generic: {
+                title: "Board & Batten Vertical Vinyl Siding",
+                product: {
+                    name: "Board & Batten Vertical Vinyl Siding",
+                    description: "Dramatic visual impact with strong vertical lines for modern sophistication",
+                    price: "4.99/sq ft",
+                    image: "https://placehold.co/400x225/2F4F4F/ffffff?text=Board+Batten+Siding"
+                },
+                blog: { title: "Modern Board & Batten Siding Trends" },
+                review: { quote: "Gave our home a completely modern look. The vertical lines make it appear taller.", author: "Nancy W., New Hartford" }
+            },
+            utica: {
+                title: "Board & Batten Siding for Utica",
+                product: {
+                    name: "Utica Board & Batten Vinyl Siding",
+                    description: "Contemporary style designed to complement Utica's diverse architecture",
+                    price: "5.49/sq ft",
+                    image: "https://placehold.co/400x225/36454F/ffffff?text=Utica+Board+Batten"
+                },
+                blog: { title: "Board & Batten Siding for Modern Utica Homes" },
+                review: { quote: "Love the modern look on our renovated home. Stands out in the best way.", author: "Justin M., Utica" }
+            }
         }
     };
 
@@ -579,6 +737,75 @@ export default function NYSChatApp() {
             ], 
             next: (choice: string) => choice, 
         },
+        siding: {
+            agent: "Enhance your home's curb appeal and protection with New York Sash siding. We offer a variety of siding options to transform and protect your home's exterior. Whether you're drawn to the timeless charm of wood, the low-maintenance strength of vinyl, or the sophisticated beauty of stone, we have options to suit your unique taste and budget.\n\nWhat type of siding are you most interested in?",
+            options: [
+                { text: 'Engineered Wood', value: 'engineered_wood' },
+                { text: 'Cedar Shake', value: 'cedar_shake' },
+                { text: 'Reinforced Vinyl', value: 'reinforced_vinyl' },
+                { text: 'Traditional Vinyl', value: 'monogram' },
+                { text: 'Stacked Stone', value: 'stacked_stone' },
+                { text: 'Board & Batten', value: 'board_batten' }
+            ],
+            next: (choice: string) => choice,
+        },
+        engineered_wood: {
+            agent: "Diamond Kote Engineered Wood Siding delivers the rich texture and natural appeal of wood with significantly enhanced durability. This siding is backed by an impressive 30-year no-fade finish warranty, giving you peace of mind for decades to come.\n\nWould you like to know more about our installation process or get a free quote?",
+            options: [
+                { text: 'Installation Process', value: 'siding_installation' },
+                { text: 'Get a Free Quote', value: 'contact' }
+            ],
+            next: (choice: string) => choice,
+        },
+        cedar_shake: {
+            agent: "Long for the classic, weathered beauty of cedar shingles? Our Cedar Shake & Shingle Vinyl Siding collection provides the authentic look of real cedar, meticulously molded from genuine wood shingles, but with the low-maintenance convenience of vinyl.\n\nWould you like to know more about our installation process or get a free quote?",
+            options: [
+                { text: 'Installation Process', value: 'siding_installation' },
+                { text: 'Get a Free Quote', value: 'contact' }
+            ],
+            next: (choice: string) => choice,
+        },
+        reinforced_vinyl: {
+            agent: "Reinforced Vinyl Siding offers the best of both worlds: the authentic appearance of traditional wood plank siding and the unmatched durability and low-maintenance benefits of vinyl. Reinforced for enhanced rigidity and impact resistance, this siding is moisture-resistant, eliminating concerns about rot or decay.\n\nWould you like to know more about our installation process or get a free quote?",
+            options: [
+                { text: 'Installation Process', value: 'siding_installation' },
+                { text: 'Get a Free Quote', value: 'contact' }
+            ],
+            next: (choice: string) => choice,
+        },
+        monogram: {
+            agent: "Available in a wide range of colors and profiles, Monogram Traditional Vinyl Siding beautifully replicates the classic look of painted or stained cedar, offering a refined and enduring aesthetic for any home style.\n\nWould you like to know more about our installation process or get a free quote?",
+            options: [
+                { text: 'Installation Process', value: 'siding_installation' },
+                { text: 'Get a Free Quote', value: 'contact' }
+            ],
+            next: (choice: string) => choice,
+        },
+        stacked_stone: {
+            agent: "Add the sophisticated texture and timeless appeal of natural stone to your home with Stacked Stone Vinyl Siding. Create stunning accent walls or transform your entire home exterior with this elegant and durable siding option.\n\nWould you like to know more about our installation process or get a free quote?",
+            options: [
+                { text: 'Installation Process', value: 'siding_installation' },
+                { text: 'Get a Free Quote', value: 'contact' }
+            ],
+            next: (choice: string) => choice,
+        },
+        board_batten: {
+            agent: "Embrace contemporary style with Board and Batten vertical siding. This siding creates a dramatic visual impact with its strong vertical lines, adding height and modern sophistication to any home.\n\nWould you like to know more about our installation process or get a free quote?",
+            options: [
+                { text: 'Installation Process', value: 'siding_installation' },
+                { text: 'Get a Free Quote', value: 'contact' }
+            ],
+            next: (choice: string) => choice,
+        },
+        siding_installation: {
+            agent: "Our professional siding installation ensures your new siding is properly fitted and secured for maximum durability and protection. We utilize cutting-edge 3D modeling technology to create realistic renderings of your home with different siding products, colors, and styles. This allows you to see your vision come to life before any work begins.\n\nWould you like to visit our Idea & Design Center or get a free quote?",
+            options: [
+                { text: 'Visit Design Center', value: 'design_center' },
+                { text: 'Get a Free Quote', value: 'contact' }
+            ],
+            next: (choice: string) => choice,
+        },
+        bathrooms: { agent: "Great choice! We specialize in stunning one-day bath and shower remodels. What would you like to know more about?", options: [ { text: 'The One-Day Process', value: 'bath_process' }, { text: 'Safety & Accessibility', value: 'bath_safety' } ], next: (choice: string) => choice, },
         financing: { agent: (context: string) => `Of course. We offer flexible financing to make your dream ${context || 'project'} a reality. A specialist can walk you through the options. To get started, what is the best phone number and email to reach you?`, next: () => 'end_contact' },
         warranty: { agent: (context: string) => `Absolutely. We stand behind our work. All our ${context || 'products'} come with a comprehensive warranty for your peace of mind. A specialist can provide all the details for you. Can I get your phone and email?`, next: () => 'end_contact' },
         contact: { agent: (context: string, name: string) => `Perfect, ${name}. A specialist can provide a detailed, free quote for your ${context || 'project'}. I'll have someone reach out to the contact info you provide. What is the best phone number and email?`, next: () => 'end_contact' },
@@ -618,9 +845,10 @@ export default function NYSChatApp() {
             }
         }
         
-        // Update sidebar content for specific window styles
+        // Update sidebar content for specific window styles and siding types
         const windowStyles = ['double_hung', 'bay_bow', 'picture', 'awning', 'slider', 'hopper', 'casement'];
-        if (windowStyles.includes(stepKey)) {
+        const sidingTypes = ['engineered_wood', 'cedar_shake', 'reinforced_vinyl', 'monogram', 'stacked_stone', 'board_batten'];
+        if (windowStyles.includes(stepKey) || sidingTypes.includes(stepKey)) {
             setProductContext(stepKey);
             if (sidebarContentDB[stepKey as keyof typeof sidebarContentDB]) {
                 const content = sidebarContentDB[stepKey as keyof typeof sidebarContentDB][userInfo?.location] || sidebarContentDB[stepKey as keyof typeof sidebarContentDB].generic;
